@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ASCII Art Web</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>ASCII Art Generator</h1>
+		
+		<div class="instructions">
+			<strong>Как использовать:</strong>
+			<ul>
+				<li>Введите ваш текст в поле "Text" ниже.</li>
+				<li>Вы можете использовать Enter для создания нескольких строк.</li>
+				<li>Выберите один из трех стилей в меню "Banner".</li>
+				<li>Нажмите "Generate", чтобы получить результат.</li>
+				<li>Поддерживаются только символы ASCII (латиница, цифры, знаки препинания).</li>
+			</ul>
+		</div>
+		
+		<form method="POST" action="/ascii">
+			<label for="text-input">Text:</label>
+			<textarea name="text" id="text-input" required maxlength="1000">{{.InputText}}</textarea>
+			<small>Maximum 1000 characters.</small><br><br>
+			
+			<label for="banner-select">Banner:</label>
+			<select name="banner" id="banner-select">
+				<option value="standard">Standard</option>
+				<option value="shadow">Shadow</option>
+				<option value="thinkertoy">Thinkertoy</option>
+			</select><br><br>
+			
+			<button type="submit">Generate</button>
+		</form>
+
+		<h2>Result:</h2>
+		<!-- {{if .Error}}<div class="error">{{.Error}}</div>{{end}} -->
+		<div class="result-box"> <pre>{{.Result}}</pre>
+		</div>
+	</div> </body>
+</html>

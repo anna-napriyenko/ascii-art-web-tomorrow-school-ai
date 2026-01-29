@@ -1,0 +1,198 @@
+/* --- Global Reset & Body --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: monospace;
+    background: #1f2229; /* Nice matte background */
+    color: #f0f0f0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    min-height: 100vh; /* MAIN: Ensures the page is at least 100% viewport height, but ALLOWS scrolling */
+}
+
+/* --- Container --- */
+.container {
+    width: 100%;
+    max-width: 900px;
+    /* All flex properties removed to let the page flow normally */
+}
+
+/* --- Typography --- */
+h1, h2 {
+    color: #4CAF50;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+h1 {
+    font-size: 2.5rem;
+}
+h2 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+}
+
+p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+/* --- Instructions Box --- */
+.instructions {
+    background: #2a2d35;
+    color: #ccc;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 1px solid #4a4f5a;
+    font-size: 0.95rem;
+}
+/* Styles for the list in instructions (from index.html) */
+.instructions ul {
+    list-style-position: inside;
+    padding-left: 5px;
+}
+.instructions li {
+    margin-bottom: 0.5rem;
+}
+
+
+/* --- Form Styling --- */
+form {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+textarea, select {
+    width: 100%;
+    font-size: 1rem;
+    font-family: monospace;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #4a4f5a;
+    background: #2a2d35;
+    color: #f0f0f0;
+    margin-bottom: 1.5rem;
+}
+
+/* Ensures text visibility */
+textarea {
+    height: 150px;
+    resize: vertical;
+    color: #ffffff !important; 
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23cccccc%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right .7em top 50%;
+    background-size: .65em auto;
+    padding-right: 2.5em;
+}
+
+/* --- Interactive Button --- */
+button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: monospace;
+    color: #ffffff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.99);
+}
+
+/* --- Feedback (Error & Result) --- */
+.error {
+    background: #4d2222;
+    color: #ff9999;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ff5555;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.result-box {
+    width: 100%;
+    overflow: auto; /* Scrollbar for the result */
+    border: 1px solid #4a4f5a;
+    padding: 1.5rem;
+    background: #1a1c22;
+    border-radius: 6px;
+    max-height: 500px; /* Limit height so it doesn't scroll indefinitely */
+    /* Flex properties removed */
+}
+
+.result-box pre {
+    font-size: 0.85rem;
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* --- Error Page Styles --- */
+body.error-page-body {
+    justify-content: center;
+}
+
+.error-container {
+    background: #2a2d35;
+    padding: 2.5rem 3rem;
+    border-radius: 8px;
+    border: 1px solid #4a4f5a;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    max-width: 600px;
+}
+
+.error-container h1 {
+    font-size: 2.5rem;
+    color: #ff6666;
+    margin-bottom: 0.5rem;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.back-button:hover {
+    background-color: #45a049;
+}
+.back-button:active {
+    transform: scale(0.98);
+}
